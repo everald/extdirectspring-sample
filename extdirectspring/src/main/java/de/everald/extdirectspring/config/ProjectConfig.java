@@ -28,7 +28,7 @@ public class ProjectConfig extends WebConfig {
 	@Bean
 	public ch.ralscha.extdirectspring.controller.Configuration getConfig() {
 		final ch.ralscha.extdirectspring.controller.Configuration result = new ch.ralscha.extdirectspring.controller.Configuration();
-		result.setEnableBuffer(false);
+//		result.setEnableBuffer(false);
 		result.setMaxRetries(MAX_RETRIES);
 		result.setTimeout(TIMEOUT);
 		result.setJsContentType("application/x-javascript");

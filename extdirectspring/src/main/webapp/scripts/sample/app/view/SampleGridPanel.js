@@ -17,10 +17,9 @@ Ext.define('sample.view.SampleGridPanel', {
                     'dataIndex': 'name'
                 }, {
                     'text': 'Creation Date',
-                    'dataIndex': 'timestamp',
-                    'renderer': function (v) {
-                        return Ext.Date.format(new Date(v), "d/m/Y H:i:s");
-                    }
+                    'dataIndex': 'timestamp', 
+					'xtype': 'datecolumn', 
+					'format': 'd/m/Y H:i:s'
                 }
             ],
             'defaults': {

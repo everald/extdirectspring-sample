@@ -16,6 +16,6 @@ import ch.ralscha.extdirectspring.generator.ModelType;
 public class GridObject {
 	private Integer	itemKey;
 	private String	name;
-	@ModelField(dateFormat="d/m/Y H:i:s",type=ModelType.INTEGER)
+	@ModelField(dateFormat="time",type=ModelType.DATE)
 	private Date	timestamp;
 }
