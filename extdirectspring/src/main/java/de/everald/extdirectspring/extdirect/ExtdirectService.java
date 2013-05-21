@@ -14,6 +14,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Ordering;
 
 import de.everald.extdirectspring.content.ContentService;
+import de.everald.extdirectspring.extdirect.utils.Filtering;
 import de.everald.extdirectspring.extdirect.utils.PropertyOrderingFactory;
 import de.everald.extdirectspring.objects.GridObject;
 
@@ -26,6 +27,9 @@ public class ExtdirectService {
 	@ExtDirectMethod(value = ExtDirectMethodType.STORE_READ)
 	public ExtDirectStoreReadResult<GridObject> getList(ExtDirectStoreReadRequest r) {
 		List<GridObject> list = service.getList();
+		if (!r.getFilters().isEmpty()) {
+			list = new Filtering<GridObject>().filter(r.getFilters(), list, GridObject.class);
+		}
 		int totalSize = list.size();
 		Ordering<GridObject> ordering = PropertyOrderingFactory.createOrderingFromSorters(r.getSorters());
 		if (ordering != null) {
